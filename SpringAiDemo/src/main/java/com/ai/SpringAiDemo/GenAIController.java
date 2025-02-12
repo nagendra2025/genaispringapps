@@ -28,8 +28,10 @@ public class GenAIController {
     }
 
     @GetMapping("ask-ai-options")
-    public String getResponseOptions(@RequestParam String prompt){
-        return chatService.getResponseOptions(prompt);
+    public String getResponseOptions(@RequestParam String prompt,
+    								@RequestParam(defaultValue = "gpt-4o") String model,
+    								@RequestParam(defaultValue = "0.4F") float temp){
+        return chatService.getResponseOptions(prompt,model, temp);
     }
 
     /*@GetMapping("generate-image")
