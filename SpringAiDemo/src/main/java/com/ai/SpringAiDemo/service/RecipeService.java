@@ -1,4 +1,4 @@
-package com.ai.SpringAiDemo;
+package com.ai.SpringAiDemo.service;
 
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -26,14 +26,20 @@ public class RecipeService {
                 """;
 
         PromptTemplate promptTemplate = new PromptTemplate(template);
-        Map<String, Object> params = Map.of(
-                "ingredients",ingredients,
-                "cuisine", cuisine,
-                "dietaryRestrictions", dietaryRestrictions
-        );
-
-        Prompt prompt = promptTemplate.create(params);
-        return chatModel.call(prompt).getResult().getOutput().getContent();
+        
+/*       Using HashMap approach to add the parameters to the prompt.    */    
+//        Map<String, Object> params = Map.of(
+//                "ingredients",ingredients,
+//                "cuisine", cuisine,
+//                "dietaryRestrictions", dietaryRestrictions
+//        );
+//        Prompt prompt = promptTemplate.create(params);
+        
+        promptTemplate.add("ingredients",ingredients);
+        promptTemplate.add("cuisine", cuisine);
+        promptTemplate.add("dietaryRestrictions", dietaryRestrictions);
+        
+        return chatModel.call(promptTemplate.create()).getResult().getOutput().getContent();
     }
 
 }
