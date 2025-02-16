@@ -1,4 +1,4 @@
-package com.ai.SpringAiDemo;
+package com.ai.SpringAiDemo.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,6 +8,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ai.SpringAiDemo.service.ChatService;
+import com.ai.SpringAiDemo.service.ImageService;
+import com.ai.SpringAiDemo.service.RecipeService;
 
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotBlank;
