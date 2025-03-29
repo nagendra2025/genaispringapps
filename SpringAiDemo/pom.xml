@@ -48,6 +48,49 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		  <dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.9.0</version>  <!-- Use the latest version -->
+</dependency>
+<dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.20.0</version> <!-- Use the latest version -->
+    </dependency>
+
+    <!-- WebDriverManager (optional, for automatic ChromeDriver management) -->
+    <dependency>
+        <groupId>io.github.bonigarcia</groupId>
+        <artifactId>webdrivermanager</artifactId>
+        <version>5.9.0</version>
+    </dependency>
+    
+    <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-devtools-v123</artifactId>  <!-- Try v123 if 122 doesn't work -->
+    <version>4.20.0</version>
+    </dependency>
+    
+     <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.20.0</version>
+    </dependency>
+
+    <!-- WebDriverManager for automatic ChromeDriver management -->
+    <dependency>
+        <groupId>io.github.bonigarcia</groupId>
+        <artifactId>webdrivermanager</artifactId>
+        <version>5.9.0</version>
+    </dependency>
+
+    <!-- Manually specify CDP version -->
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-devtools-v122</artifactId>  <!-- Adjust version if needed -->
+        <version>4.20.0</version>
+    </dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

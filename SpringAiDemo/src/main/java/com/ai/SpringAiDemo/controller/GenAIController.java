@@ -73,7 +73,7 @@ public class GenAIController {
     }
     
     @GetMapping("wishes")
-    public String wishesGenerator() {
+    public String wishesGenerator() throws InterruptedException {
         return wishesService.createWishes();
     }
 }
