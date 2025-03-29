@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ai.SpringAiDemo.service.ChatService;
 import com.ai.SpringAiDemo.service.ImageService;
 import com.ai.SpringAiDemo.service.RecipeService;
+import com.ai.SpringAiDemo.service.WishesService;
 
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotBlank;
@@ -23,11 +24,14 @@ public class GenAIController {
     private final ChatService chatService;
     private final ImageService imageService;
     private final RecipeService recipeService;
+    private final WishesService wishesService;
 
-    public GenAIController(ChatService chatService, ImageService imageService, RecipeService recipeService) {
+    public GenAIController(ChatService chatService, ImageService imageService, RecipeService recipeService,
+    		WishesService wishesService) {
         this.chatService = chatService;
         this.imageService = imageService;
         this.recipeService = recipeService;
+        this.wishesService = wishesService;
     }
 
     @GetMapping("ask-ai")
@@ -42,12 +46,6 @@ public class GenAIController {
         return chatService.getResponseOptions(prompt,model, temp);
     }
 
-    /*@GetMapping("generate-image")
-    public void generateImages(HttpServletResponse response, @RequestParam String prompt) throws IOException {
-        ImageResponse imageResponse = imageService.generateImage(prompt);
-        String imageUrl = imageResponse.getResult().getOutput().getUrl();
-        response.sendRedirect(imageUrl);
-    }*/
 
     @GetMapping("generate-image")
     public List<String> generateImages(HttpServletResponse response,
@@ -72,5 +70,10 @@ public class GenAIController {
                                       @RequestParam(defaultValue = "any") String cuisine,
                                       @RequestParam(defaultValue = "") String dietaryRestriction) {
         return recipeService.createRecipe(ingredients, cuisine, dietaryRestriction);
+    }
+    
+    @GetMapping("wishes")
+    public String wishesGenerator() {
+        return wishesService.createWishes();
     }
 }

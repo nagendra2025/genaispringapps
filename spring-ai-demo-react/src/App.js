@@ -3,6 +3,7 @@ import './App.css';
 import ImageGenerator from './components/ImageGenerator';
 import ChatComponent from './components/ChatComponent';
 import RecipeGenerator from './components/RecipeGenerator';
+import WishesGenerator from './components/WishesGenerator';
 
 function App() {
   const [activeTab, setActiveTab] = useState('image-generator');
@@ -26,11 +27,15 @@ function App() {
       onClick={() => handleTabChange('recipe-generator')}>
         Recipe Generator
         </button>
-
+        <button className={activeTab === 'wishes-generator' ? 'active' : ''}
+      onClick={() => handleTabChange('wishes-generator')}>
+        Wishes Generator
+        </button>
         <div>
           {activeTab === 'image-generator' && <ImageGenerator/>}
           {activeTab === 'chat' && <ChatComponent/>}
           {activeTab === 'recipe-generator' && <RecipeGenerator/>}
+          {activeTab === 'wishes-generator' && <WishesGenerator/>}
         </div>
     </div>
   );
